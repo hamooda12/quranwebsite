@@ -684,4 +684,209 @@
                 grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
             }
         }
+    .notactive{
+        display:none;
+    }
+   /* Surah Navigation Styles */
+.surah-navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 25px;
+    margin: 20px 0;
+    background: linear-gradient(135deg, var(--dark-card), #1a2d24);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--dark-border);
+}
+
+.light-mode .surah-navigation {
+    background: white;
+    border-color: var(--sand);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.surah-navigation button {
+    padding: 16px 35px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    font-family: 'Tajawal', sans-serif;
+    background: linear-gradient(135deg, var(--medium-green), var(--light-green));
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 6px 15px rgba(45, 90, 39, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 140px;
+    position: relative;
+    overflow: hidden;
+}
+
+.surah-navigation button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.surah-navigation button:hover::before {
+    opacity: 1;
+}
+
+.surah-navigation button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(45, 90, 39, 0.4);
+}
+
+.surah-navigation button:active {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(45, 90, 39, 0.3);
+}
+
+.surah-navigation button:disabled {
+    background: linear-gradient(135deg, var(--dark-border), #2d4a3a);
+    color: rgba(255, 255, 255, 0.5);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.light-mode .surah-navigation button:disabled {
+    background: linear-gradient(135deg, #e0e0e0, #cccccc);
+    color: rgba(0, 0, 0, 0.3);
+}
+
+.light-mode .surah-navigation button {
+    background: linear-gradient(135deg, var(--gold), var(--light-gold));
+    color: var(--dark-green);
+    box-shadow: 0 6px 15px rgba(201, 169, 89, 0.3);
+}
+
+.light-mode .surah-navigation button:hover {
+    box-shadow: 0 12px 25px rgba(201, 169, 89, 0.4);
+}
+
+.light-mode .surah-navigation button:active {
+    box-shadow: 0 4px 10px rgba(201, 169, 89, 0.3);
+}
+
+#pageNumber {
+    font-family: 'Amiri', 'Scheherazade', serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--gold);
+    background: var(--dark-bg);
+    padding: 20px 40px;
+    border-radius: 15px;
+    min-width: 120px;
+    text-align: center;
+    box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.3),
+                0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 2px solid var(--dark-border);
+    position: relative;
+    overflow: hidden;
+}
+
+#pageNumber::before {
+    content: "صفحة";
+    position: absolute;
+    top: -25px;
+    right: 50%;
+    transform: translateX(50%);
+    font-size: 1rem;
+    color: var(--light-gold);
+    font-family: 'Tajawal', sans-serif;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.light-mode #pageNumber {
+    color: var(--dark-green);
+    background: white;
+    border-color: var(--sand);
+    box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.1),
+                0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.light-mode #pageNumber::before {
+    color: var(--text-light);
+}
+
+/* Responsive adjustments for navigation */
+@media (max-width: 768px) {
+    .surah-navigation {
+        gap: 20px;
+        padding: 20px;
+        flex-direction: column;
+    }
     
+    .surah-navigation button {
+        width: 100%;
+        min-width: auto;
+        padding: 14px 25px;
+        font-size: 1.2rem;
+    }
+    
+    #pageNumber {
+        font-size: 2.2rem;
+        padding: 15px 30px;
+        order: -1;
+        width: 100%;
+    }
+    
+    #pageNumber::before {
+        top: -20px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .surah-navigation {
+        padding: 15px;
+        gap: 15px;
+    }
+    
+    .surah-navigation button {
+        padding: 12px 20px;
+        font-size: 1.1rem;
+    }
+    
+    #pageNumber {
+        font-size: 1.8rem;
+        padding: 12px 25px;
+    }
+    
+    #pageNumber::before {
+        font-size: 0.8rem;
+        top: -18px;
+    }
+}
+
+/* Animation for page number change */
+@keyframes pageChange {
+    0% {
+        transform: scale(0.9);
+        opacity: 0.7;
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.page-change {
+    animation: pageChange 0.3s ease;
+}
