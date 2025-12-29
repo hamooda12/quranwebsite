@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تلاوات القرآن الكريم - جزء عم</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-mode">
+    <div class="container">
+        <header>
+            <h1><i>﷽</i> تلاوات القرآن الكريم</h1>
+            <p class="subtitle">استمع إلى تلاوات جزء عم بأصوات أشهر القراء</p>
+            
+            <div class="pattern-divider"></div>
+            
+            <!-- Theme Switcher -->
+            <div class="theme-switcher">
+                <span class="theme-label">وضع العرض:</span>
+                <div class="theme-toggle" id="themeToggle">
+                    <div class="theme-slider" id="active-theme"></div>
+                    <div class="theme-option active" id="dark">الوضع الداكن</div>
+                    <div class="theme-option" id="light">الوضع الفاتح</div>
+                </div>
+            </div>
+        </header>
+        
+        <main>
+            <div class="left-panel">
+                <!-- Reciter Selection -->
+                <div class="reciter-selection">
+                    <h2 class="section-title"><i>📖</i> اختر قارئًا</h2>
+                    <div class="select-wrapper">
+                        <select class="reciter-select" id="reciterSelect">
+                            <option value="">-- اختر قارئًا --</option>
+                            <option value="Mishary Alafasi">مشاري العفاسي</option>
+                            <option value="Saad Al-Ghamdi">سعد الغامدي</option>
+                            <option value="Ahmad Al-Ajmy">أحمد العجمي</option>
+                            <option value="Maher Al Meaqli">ماهر المعيقلي</option>
+                            <option value="Khalid Al-Jileel">خالد الجليل</option>
+                            <option value="Yasser Al-Dosari">ياسر الدوسري</option>
+                            <option value="Fares Abbad">فارس عباد</option>
+                            <option value="Abdulbasit Abdulsamad">عبد الباسط عبد الصمد</option>
+                            <option value="Mahmoud Khalil Al-Hussary">محمود خليل الحصري</option>
+                            <option value="Mohammed Siddiq Al-Minshawi">محمد صديق المنشاوي</option>
+                            <option value="Abdulrahman Alsudaes">عبد الرحمن السديس</option>
+                            <option value="Mustafa raad Alazawy"> مصطفى العزوي
+                            </option>
+                            <option value="Abdullah Al-Johany">عبد الله عواد الجهني</option>
+                            <option value="Ibrahim Kshidan">إبراهيم الشيدان</option>
+                            <option value="Nasser Alqatami">ناصر القطامي</option>
+                            <option value="Mohammed Ayyub">محمد أيوب</option>
+                            <option value="Abdullah Basfer">عبد الله بصفر</option>
+                            <option value="Ali Jaber">علي جابر</option>
+                            <option value="Idrees Abkr">إدريس أبكر</option>
+                            <option value="Bandar Balilah">بندر بليلة</option>
+                            <option value="Hani Arrifai">هاني الرفاعي</option>
+                            <option value="Abdulrasheed Soufi">عبد الرشيد صوفي</option>
+                            <option value="Mohammad Al-Tablaway">محمد الطبلاوي</option>
+                            <option value="Jamaan Alosaimi">جمال العصيني</option>
+                            <option value="Abdullah Al-Mattrod">عبد الله المطرود</option>
+                            <option value="Nathier Almalki">ناثر المالكي</option>
+                            <option value="Abdulmohsen Al-Qasim">عبد المحسن القاسم</option>
+                            <option value="28">محمد اللحيدان</option>
+                            <option value="Ibrahim Al-Akdar">إبراهيم الخضر</option>
+                            <option value="Ahmad Al Nufais">أحمد النفيس</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Audio Player Card -->
+                <div class="audio-player-card" id="audioPlayer">
+                    <div class="card-header">
+                        <h2>مشغل التلاوة</h2>
+                        <div class="player-icon">🎵</div>
+                    </div>
+                    
+                    <div class="player-info">
+                        <div class="info-row">
+                            <div class="info-item">
+                                <div>
+                                    <div class="info-label">القارئ</div>
+                                    <div class="info-value" id="selectedReciter">لم يتم الاختيار</div>
+                                </div>
+                            </div>
+                            <div class="info-item center">
+                                <div class="center">
+                                    <div class="info-label">السورة</div>
+                                    <div class="info-value" id="selectedSurah">لم يتم الاختيار</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="player-controls">
+                         <button class="control-btn repet" id="repeatBtn" title="تكرار السورة">
+        🔁
+    </button>
+                        <button class="control-btn secondary" id="muteBtn">
+                        🔊
+                        </button>
+                        <button class="control-btn" id="playBtn">
+                            ▶
+                        </button>
+                    </div>
+                    
+                    <div class="card-footer">
+                        <p class="islamic-quote">"وَقُرْآنًا فَرَقْنَاهُ لِتَقْرَأَهُ عَلَى النَّاسِ عَلَىٰ مُكْثٍ وَنَزَّلْنَاهُ تَنْزِيلًا"</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="right-panel">
+                <!-- Surah Grid -->
+                <div class="surah-grid-container">
+                    <h2 class="section-title"><i>🌙</i> سور جزء عم</h2>
+                    <div class="surah-grid" id="surahGrid">
+                        <!-- Surah buttons for Juz Amma -->
+                        <button class="surah-btn" data-surah="النبأ">النبأ</button>
+                        <button class="surah-btn" data-surah="النازعات">النازعات</button>
+                        <button class="surah-btn" data-surah="عبس">عبس</button>
+                        <button class="surah-btn" data-surah="التكوير">التكوير</button>
+                        <button class="surah-btn" data-surah="الانفطار">الانفطار</button>
+                        <button class="surah-btn" data-surah="المطففين">المطففين</button>
+                        <button class="surah-btn" data-surah="الإنشقاق">الإنشقاق</button>
+                        <button class="surah-btn" data-surah="البروج">البروج</button>
+                        <button class="surah-btn" data-surah="الطارق">الطارق</button>
+                        <button class="surah-btn" data-surah="الأعلى">الأعلى</button>
+                        <button class="surah-btn" data-surah="الغاشية">الغاشية</button>
+                        <button class="surah-btn" data-surah="الفجر">الفجر</button>
+                        <button class="surah-btn" data-surah="البلد">البلد</button>
+                        <button class="surah-btn" data-surah="الشمس">الشمس</button>
+                        <button class="surah-btn" data-surah="الليل">الليل</button>
+                        <button class="surah-btn" data-surah="الضحى">الضحى</button>
+                        <button class="surah-btn" data-surah="الشرح">الشرح</button>
+                        <button class="surah-btn" data-surah="التين">التين</button>
+                        <button class="surah-btn" data-surah="العلق">العلق</button>
+                        <button class="surah-btn" data-surah="القدر">القدر</button>
+                        <button class="surah-btn" data-surah="البينة">البينة</button>
+                        <button class="surah-btn" data-surah="الزلزلة">الزلزلة</button>
+                        <button class="surah-btn" data-surah="العاديات">العاديات</button>
+                        <button class="surah-btn" data-surah="القارعة">القارعة</button>
+                        <button class="surah-btn" data-surah="التكاثر">التكاثر</button>
+                        <button class="surah-btn" data-surah="العصر">العصر</button>
+                        <button class="surah-btn" data-surah="الهمزة">الهمزة</button>
+                        <button class="surah-btn" data-surah="الفيل">الفيل</button>
+                        <button class="surah-btn" data-surah="قريش">قريش</button>
+                        <button class="surah-btn" data-surah="الماعون">الماعون</button>
+                        <button class="surah-btn" data-surah="الكوثر">الكوثر</button>
+                        <button class="surah-btn" data-surah="الكافرون">الكافرون</button>
+                        <button class="surah-btn" data-surah="النصر">النصر</button>
+                        <button class="surah-btn" data-surah="المسد">المسد</button>
+                        <button class="surah-btn" data-surah="الإخلاص">الإخلاص</button>
+                        <button class="surah-btn" data-surah="الفلق">الفلق</button>
+                        <button class="surah-btn" data-surah="الناس">الناس</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>جميع الحقوق محفوظة © 2023 - موقع تلاوات القرآن الكريم</p>
+            <p class="footer-note">هذا الموقع للعرض المرئي فقط - جزء من مشروع تصميم واجهات المستخدم</p>
+        </footer>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

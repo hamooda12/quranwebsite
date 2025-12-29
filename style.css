@@ -1,0 +1,687 @@
+
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --dark-green: #1a472a;
+            --medium-green: #2d5a27;
+            --light-green: #4a7856;
+            --gold: #c9a959;
+            --light-gold: #e5d4a0;
+            --beige: #f5f1e6;
+            --sand: #e8dfca;
+            --dark-beige: #d8c9a8;
+            --text-dark: #2c3e2d;
+            --text-light: #5d6d5e;
+            --shadow: rgba(26, 71, 42, 0.15);
+            --dark-bg: #0d1f13;
+            --dark-card: #14281c;
+            --dark-text: #e8f5e9;
+            --dark-border: #2d4a3a;
+        }
+
+        body {
+            font-family: 'Poppins', 'Tajawal', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--dark-text);
+            line-height: 1.8;
+            min-height: 100vh;
+            direction: rtl;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(201, 169, 89, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 80% 20%, rgba(74, 120, 86, 0.05) 0%, transparent 20%);
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Islamic geometric pattern background */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(30deg, var(--shadow) 12%, transparent 12.5%, transparent 87%, var(--shadow) 87.5%, var(--shadow)),
+                linear-gradient(150deg, var(--shadow) 12%, transparent 12.5%, transparent 87%, var(--shadow) 87.5%, var(--shadow)),
+                linear-gradient(30deg, var(--shadow) 12%, transparent 12.5%, transparent 87%, var(--shadow) 87.5%, var(--shadow)),
+                linear-gradient(150deg, var(--shadow) 12%, transparent 12.5%, transparent 87%, var(--shadow) 87.5%, var(--shadow)),
+                linear-gradient(60deg, rgba(201, 169, 89, 0.08) 25%, transparent 25.5%, transparent 75%, rgba(201, 169, 89, 0.08) 75%, rgba(201, 169, 89, 0.08)),
+                linear-gradient(60deg, rgba(201, 169, 89, 0.08) 25%, transparent 25.5%, transparent 75%, rgba(201, 169, 89, 0.08) 75%, rgba(201, 169, 89, 0.08));
+            background-size: 80px 140px;
+            background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
+            opacity: 0.2;
+            z-index: -1;
+        }
+
+        /* Light mode styles */
+        body.light-mode {
+            background-color: var(--beige);
+            color: var(--text-dark);
+        }
+
+        .light-mode .theme-toggle {
+            background-color: var(--sand);
+        }
+
+        .light-mode .theme-slider {
+            right: 5px;
+        }
+
+        .light-mode .card-header {
+            background: linear-gradient(135deg, var(--dark-green), var(--medium-green));
+        }
+
+        .light-mode .surah-btn {
+            background-color: white;
+            color: var(--text-dark);
+            border-color: var(--sand);
+        }
+
+        .light-mode .surah-btn:hover {
+            background-color: var(--beige);
+        }
+
+        .light-mode .surah-btn.active {
+            background-color: var(--medium-green);
+            color: white;
+        }
+
+        .light-mode .reciter-select {
+            background-color: white;
+            color: var(--text-dark);
+            border-color: var(--sand);
+        }
+
+        .light-mode .audio-player-card {
+            background: white;
+            border-color: var(--sand);
+        }
+
+        .light-mode .player-reciter,
+        .light-mode .player-surah {
+            color: var(--text-light);
+        }
+
+        .light-mode .theme-option.active {
+            color: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header Styles */
+        header {
+            text-align: center;
+            padding: 30px 20px;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            font-family: 'Amiri', 'Scheherazade', serif;
+            color: var(--light-gold);
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .light-mode header h1 {
+            color: var(--dark-green);
+        }
+
+        header h1 i {
+            color: var(--gold);
+            margin-left: 15px;
+            font-size: 2.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--light-gold);
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .light-mode .subtitle {
+            color: var(--text-light);
+        }
+
+        .pattern-divider {
+            height: 4px;
+            width: 200px;
+            margin: 20px auto;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            position: relative;
+        }
+
+        .pattern-divider::before,
+        .pattern-divider::after {
+            content: "۞";
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gold);
+            font-size: 1.5rem;
+        }
+
+        .pattern-divider::before {
+            right: -25px;
+        }
+
+        .pattern-divider::after {
+            left: -25px;
+        }
+
+        /* Theme Switcher */
+        .theme-switcher {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+            gap: 15px;
+        }
+
+        .theme-label {
+            font-size: 1.1rem;
+            color: var(--light-gold);
+            font-weight: 500;
+        }
+
+        .light-mode .theme-label {
+            color: var(--medium-green);
+        }
+
+        .theme-toggle {
+            display: flex;
+            background-color: var(--dark-card);
+            border-radius: 50px;
+            padding: 5px;
+            width: 140px;
+            cursor: pointer;
+            position: relative;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--dark-border);
+        }
+
+        .theme-option {
+            flex: 1;
+            text-align: center;
+            padding: 10px 0;
+            border-radius: 50px;
+            z-index: 1;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .theme-option.active {
+            color: var(--dark-text);
+        }
+
+        .theme-slider {
+            position: absolute;
+            width: 40%;
+            height: calc(100% - 10px);
+            background: linear-gradient(135deg, var(--medium-green), var(--light-green));
+            border-radius: 50px;
+            top: 5px;
+            right: 10px;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .light-mode .theme-slider {
+            right:calc(50% + 5px);
+            background: linear-gradient(135deg, var(--gold), var(--light-gold));
+        }
+
+        /* Main Content Layout */
+        main {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            flex-grow: 1;
+        }
+
+        @media (min-width: 992px) {
+            main {
+                grid-template-columns: 1fr 2fr;
+            }
+        }
+
+        /* Left Panel - Reciter Selection */
+        .left-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .section-title {
+            font-family: 'Amiri', 'Scheherazade', serif;
+            font-size: 1.8rem;
+            color: var(--gold);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--medium-green);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .light-mode .section-title {
+            color: var(--dark-green);
+        }
+
+        .section-title i {
+            font-size: 1.5rem;
+        }
+
+        /* Reciter Selection */
+        .reciter-selection {
+            background-color: var(--dark-card);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--dark-border);
+        }
+
+        .light-mode .reciter-selection {
+            background-color: white;
+            border-color: var(--sand);
+        }
+
+        .select-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        .select-wrapper::after {
+            content: "▼";
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gold);
+            pointer-events: none;
+            font-size: 0.9rem;
+        }
+
+        .reciter-select {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 1.1rem;
+            border: 2px solid var(--dark-border);
+            border-radius: 10px;
+            background-color: var(--dark-card);
+            color: var(--dark-text);
+            appearance: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        .light-mode .reciter-select {
+            background-color: white;
+            color: var(--text-dark);
+            border-color: var(--sand);
+        }
+
+        .reciter-select:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(201, 169, 89, 0.2);
+        }
+
+        /* Surah Grid */
+        .surah-grid-container {
+            background-color: var(--dark-card);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--dark-border);
+        }
+
+        .light-mode .surah-grid-container {
+            background-color: white;
+            border-color: var(--sand);
+        }
+
+        .surah-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .surah-grid {
+                grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+            }
+        }
+
+        .surah-btn {
+            padding: 18px 10px;
+            background-color: var(--dark-bg);
+            border: 2px solid var(--dark-border);
+            border-radius: 10px;
+            color: var(--dark-text);
+            font-size: 1.3rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 85px;
+            font-family: 'Amiri', 'Scheherazade', serif;
+        }
+
+        .surah-btn:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .surah-btn:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(201, 169, 89, 0.2);
+        }
+
+        .surah-btn.active {
+            background: linear-gradient(135deg, var(--medium-green), var(--light-green));
+            color: white;
+            border-color: var(--gold);
+            box-shadow: 0 8px 15px rgba(45, 90, 39, 0.3);
+        }
+
+        /* Audio Player Card */
+        .audio-player-card {
+            background: linear-gradient(135deg, var(--dark-card), #1a2d24);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+            border: 1px solid var(--dark-border);
+            margin-top: 20px;
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .audio-player-card.show {
+            display: block;
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, var(--dark-green), var(--medium-green));
+            color: white;
+            padding: 25px 30px;
+            border-radius: 15px 15px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            margin: -30px -30px 30px -30px;
+        }
+
+        .card-header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><polygon points="50,0 61,35 98,35 68,57 79,92 50,70 21,92 32,57 2,35 39,35" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: 80px;
+            opacity: 0.2;
+        }
+
+        .card-header h2 {
+            font-family: 'Amiri', 'Scheherazade', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            z-index: 1;
+        }
+
+        .player-icon {
+            font-size: 3.5rem;
+            color: var(--light-gold);
+            z-index: 1;
+        }
+
+        .player-info {
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            gap:20px
+        }
+
+        .info-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex: 1;
+            padding: 15px;
+            background-color: rgba(232, 223, 202, 0.1);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+.center{
+    justify-content: center;
+}
+        .info-item:hover {
+            background-color: rgba(232, 223, 202, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .info-item i {
+            font-size: 1.8rem;
+            color: var(--gold);
+            width: 50px;
+            text-align: center;
+        }
+
+        .info-label {
+            font-size: 0.95rem;
+            color: var(--light-gold);
+            margin-bottom: 5px;
+        }
+
+        .light-mode .info-label {
+            color: var(--text-light);
+        }
+
+        .info-value {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--dark-text);
+            font-family: 'Amiri', 'Scheherazade', serif;
+        }
+
+        .light-mode .info-value {
+            color: var(--text-dark);
+        }
+
+        .player-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        .control-btn {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--medium-green), var(--light-green));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(45, 90, 39, 0.3);
+            border: none;
+        }
+.repet{
+         background: none
+}
+        .control-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 25px rgba(45, 90, 39, 0.4);
+        }
+
+        .control-btn:active {
+            transform: scale(0.95);
+        }
+
+        .control-btn.secondary {
+            background: linear-gradient(135deg, var(--dark-card), #1a2d24);
+            color: var(--gold);
+            font-size: 2.2rem;
+            border: 2px solid var(--gold);
+        }
+      
+
+        .light-mode .control-btn.secondary {
+            background: white;
+            border-color: var(--gold);
+        }
+
+        .card-footer {
+            padding: 20px;
+            background-color: rgba(74, 120, 86, 0.1);
+            text-align: center;
+            border-radius: 0 0 15px 15px;
+            margin: 30px -30px -30px -30px;
+            border-top: 1px solid var(--dark-border);
+        }
+
+        .islamic-quote {
+            font-family: 'Amiri', 'Scheherazade', serif;
+            font-size: 1.2rem;
+            color: var(--light-gold);
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        .light-mode .islamic-quote {
+            color: var(--medium-green);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+            border-top: 1px solid var(--dark-border);
+        }
+
+        .light-mode footer {
+            border-top-color: var(--sand);
+        }
+
+        footer p {
+            color: var(--light-gold);
+            margin-bottom: 10px;
+        }
+
+        .light-mode footer p {
+            color: var(--text-light);
+        }
+
+        footer .footer-note {
+            font-size: 0.9rem;
+            color: var(--light-green);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .player-controls {
+                gap: 20px;
+            }
+            
+            .control-btn {
+                width: 70px;
+                height: 70px;
+                font-size: 2rem;
+            }
+            
+            .control-btn.secondary {
+                font-size: 1.8rem;
+            }
+            
+            .audio-player-card {
+                padding: 20px;
+            }
+            
+            .info-row {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .control-btn {
+                width: 60px;
+                height: 60px;
+                font-size: 1.8rem;
+            }
+            
+            .surah-grid {
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            }
+        }
+    
