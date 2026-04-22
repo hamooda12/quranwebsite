@@ -1,0 +1,114 @@
+   .subtitle {
+            font-size: 1.2rem;
+            color: var(--light-gold);
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .light-mode .subtitle {
+            color: var(--text-light);
+        }
+    @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .player-controls {
+                gap: 20px;
+            }
+            
+            .control-btn {
+                width: 70px;
+                height: 70px;
+                font-size: 2rem;
+            }
+            
+            .control-btn.secondary {
+                font-size: 1.8rem;
+            }
+            
+            .audio-player-card {
+                padding: 20px;
+            }
+            
+            .info-row {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .control-btn {
+                width: 60px;
+                height: 60px;
+                font-size: 1.8rem;
+            }
+            
+            .surah-grid {
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            }
+        }
+        @media (max-width: 768px) {
+    .surah-navigation {
+        gap: 20px;
+        padding: 20px;
+        flex-direction: column;
+    }
+    
+    .surah-navigation button {
+        width: 100%;
+        min-width: auto;
+        padding: 14px 25px;
+        font-size: 1.2rem;
+    }
+    
+    #pageNumber {
+        font-size: 2.2rem;
+        padding: 15px 30px;
+        order: -1;
+        width: 100%;
+    }
+    
+    #pageNumber::before {
+        top: -20px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .surah-navigation {
+        padding: 15px;
+        gap: 15px;
+    }
+    
+    .surah-navigation button {
+        padding: 12px 20px;
+        font-size: 1.1rem;
+    }
+    
+    #pageNumber {
+        font-size: 1.8rem;
+        padding: 12px 25px;
+    }
+    
+    #pageNumber::before {
+        font-size: 0.8rem;
+        top: -18px;
+    }
+}

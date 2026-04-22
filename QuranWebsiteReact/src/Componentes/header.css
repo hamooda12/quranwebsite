@@ -1,0 +1,118 @@
+.header {
+            text-align: center;
+            padding: 30px 20px;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-family: 'Amiri', 'Scheherazade', serif;
+            color: var(--light-gold);
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .light-mode .header h1 {
+            color: var(--dark-green);
+        }
+
+        .header h1 i {
+            color: var(--gold);
+            margin-left: 15px;
+            font-size: 2.5rem;
+        }
+         .light-mode .theme-toggle {
+            background-color: var(--sand);
+        }
+
+       
+         .light-mode .theme-option.active {
+            color: white;
+        }
+        .theme-switcher {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+            gap: 15px;
+        }
+
+        .theme-label {
+            font-size: 1.1rem;
+            color: var(--light-gold);
+            font-weight: 500;
+        }
+
+        .light-mode .theme-label {
+            color: var(--medium-green);
+        }
+
+        .theme-toggle {
+            display: flex;
+            background-color: var(--dark-card);
+            border-radius: 50px;
+            padding: 5px;
+            width: 140px;
+            cursor: pointer;
+            position: relative;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--dark-border);
+        }
+
+        .theme-option {
+            flex: 1;
+            text-align: center;
+            padding: 10px 0;
+            border-radius: 50px;
+            z-index: 1;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .theme-option.active {
+            color: var(--dark-text);
+        }
+
+        .theme-slider {
+            position: absolute;
+            width: 40%;
+            height: calc(100% - 10px);
+            background: linear-gradient(135deg, var(--medium-green), var(--light-green));
+            border-radius: 50px;
+            top: 5px;
+            right: 10px;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .light-mode .theme-slider {
+            right:calc(50% + 5px);
+            background: linear-gradient(135deg, var(--gold), var(--light-gold));
+        }
+         .pattern-divider {
+            height: 4px;
+            width: 200px;
+            margin: 20px auto;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            position: relative;
+        }
+
+        .pattern-divider::before,
+        .pattern-divider::after {
+            content: "۞";
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gold);
+            font-size: 1.5rem;
+        }
+
+        .pattern-divider::before {
+            right: -25px;
+        }
+
+        .pattern-divider::after {
+            left: -25px;
+        }

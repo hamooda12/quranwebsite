@@ -1,0 +1,139 @@
+     .main {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            flex-grow: 1;
+        }
+
+        @media (min-width: 992px) {
+            .main {
+                grid-template-columns: 1fr 2fr;
+            }
+        }
+
+        .section-title {
+            font-family: 'Amiri', 'Scheherazade', serif;
+            font-size: 1.8rem;
+            color: var(--gold);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--medium-green);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .light-mode .section-title {
+            color: var(--dark-green);
+        }
+
+        .section-title i {
+            font-size: 1.5rem;
+        }
+  .surah-grid-container {
+            background-color: var(--dark-card);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--dark-border);
+        }
+
+        .light-mode .surah-grid-container {
+            background-color: white;
+            border-color: var(--sand);
+        }
+  .notactive{
+        display:none;
+    }
+   /* Surah Navigation Styles */
+.surah-navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 25px;
+    margin: 20px 0;
+    background: linear-gradient(135deg, var(--dark-card), #1a2d24);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--dark-border);
+}
+
+.light-mode .surah-navigation {
+    background: white;
+    border-color: var(--sand);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.surah-navigation button {
+    padding: 16px 35px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    font-family: 'Tajawal', sans-serif;
+    background: linear-gradient(135deg, var(--medium-green), var(--light-green));
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 6px 15px rgba(45, 90, 39, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 140px;
+    position: relative;
+    overflow: hidden;
+}
+
+.surah-navigation button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.surah-navigation button:hover::before {
+    opacity: 1;
+}
+
+.surah-navigation button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(45, 90, 39, 0.4);
+}
+
+.surah-navigation button:active {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(45, 90, 39, 0.3);
+}
+
+.surah-navigation button:disabled {
+    background: linear-gradient(135deg, var(--dark-border), #2d4a3a);
+    color: rgba(255, 255, 255, 0.5);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.light-mode .surah-navigation button:disabled {
+    background: linear-gradient(135deg, #e0e0e0, #cccccc);
+    color: rgba(0, 0, 0, 0.3);
+}
+
+.light-mode .surah-navigation button {
+    background: linear-gradient(135deg, var(--gold), var(--light-gold));
+    color: var(--dark-green);
+    box-shadow: 0 6px 15px rgba(201, 169, 89, 0.3);
+}
+
+.light-mode .surah-navigation button:hover {
+    box-shadow: 0 12px 25px rgba(201, 169, 89, 0.4);
+}
+
+.light-mode .surah-navigation button:active {
+    box-shadow: 0 4px 10px rgba(201, 169, 89, 0.3);
+}

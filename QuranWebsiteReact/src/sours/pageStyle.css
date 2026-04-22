@@ -1,0 +1,109 @@
+.surah-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .surah-grid {
+                grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+            }
+        }
+
+        .surah-btn {
+            padding: 18px 10px;
+            background-color: var(--dark-bg);
+            border: 2px solid var(--dark-border);
+            border-radius: 10px;
+            color: var(--dark-text);
+            font-size: 1.3rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 85px;
+            font-family: 'Amiri', 'Scheherazade', serif;
+        }
+
+        .surah-btn:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .surah-btn:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(201, 169, 89, 0.2);
+        }
+
+        .surah-btn.active {
+            background: linear-gradient(135deg, var(--medium-green), var(--light-green));
+            color: white;
+            border-color: var(--gold);
+            box-shadow: 0 8px 15px rgba(45, 90, 39, 0.3);
+        }
+
+#pageNumber {
+    font-family: 'Amiri', 'Scheherazade', serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--gold);
+    background: var(--dark-bg);
+    padding: 20px 40px;
+    border-radius: 15px;
+    min-width: 120px;
+    text-align: center;
+    box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.3),
+                0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 2px solid var(--dark-border);
+    position: relative;
+    overflow: hidden;
+}
+
+#pageNumber::before {
+    content: "صفحة";
+    position: absolute;
+    top: -25px;
+    right: 50%;
+    transform: translateX(50%);
+    font-size: 1rem;
+    color: var(--light-gold);
+    font-family: 'Tajawal', sans-serif;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.light-mode #pageNumber {
+    color: var(--dark-green);
+    background: white;
+    border-color: var(--sand);
+    box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.1),
+                0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.light-mode #pageNumber::before {
+    color: var(--text-light);
+}
+@keyframes pageChange {
+    0% {
+        transform: scale(0.9);
+        opacity: 0.7;
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.page-change {
+    animation: pageChange 0.3s ease;
+}

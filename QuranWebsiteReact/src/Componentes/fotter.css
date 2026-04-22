@@ -1,0 +1,24 @@
+ footer {
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+            border-top: 1px solid var(--dark-border);
+        }
+
+        .light-mode footer {
+            border-top-color: var(--sand);
+        }
+
+        footer p {
+            color: var(--light-gold);
+            margin-bottom: 10px;
+        }
+
+        .light-mode footer p {
+            color: var(--text-light);
+        }
+
+        footer .footer-note {
+            font-size: 0.9rem;
+            color: var(--light-green);
+        }

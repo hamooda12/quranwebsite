@@ -1,0 +1,25 @@
+ .reciter-select {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 1.1rem;
+            border: 2px solid var(--dark-border);
+            border-radius: 10px;
+            background-color: var(--dark-card);
+            color: var(--dark-text);
+            appearance: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        .light-mode .reciter-select {
+            background-color: white;
+            color: var(--text-dark);
+            border-color: var(--sand);
+        }
+
+        .reciter-select:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(201, 169, 89, 0.2);
+        }

@@ -1,0 +1,113 @@
+
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --dark-green: #1a472a;
+            --medium-green: #2d5a27;
+            --light-green: #4a7856;
+            --gold: #c9a959;
+            --light-gold: #e5d4a0;
+            --beige: #f5f1e6;
+            --sand: #e8dfca;
+            --dark-beige: #d8c9a8;
+            --text-dark: #2c3e2d;
+            --text-light: #5d6d5e;
+            --shadow: rgba(26, 71, 42, 0.15);
+            --dark-bg: #0d1f13;
+            --dark-card: #14281c;
+            --dark-text: #e8f5e9;
+            --dark-border: #2d4a3a;
+        }
+
+        body {
+            font-family: 'Poppins', 'Tajawal', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--dark-text);
+            line-height: 1.8;
+            min-height: 100vh;
+            direction: rtl;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(201, 169, 89, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 80% 20%, rgba(74, 120, 86, 0.05) 0%, transparent 20%);
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Islamic geometric pattern background */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(30deg, var(--shadow) 12%, transparent 12.5%, transparent 87%, var(--shadow) 87.5%, var(--shadow)),
+                linear-gradient(150deg, var(--shadow) 12%, transparent 12.5%, transparent 87%, var(--shadow) 87.5%, var(--shadow)),
+                linear-gradient(30deg, var(--shadow) 12%, transparent 12.5%, transparent 87%, var(--shadow) 87.5%, var(--shadow)),
+                linear-gradient(150deg, var(--shadow) 12%, transparent 12.5%, transparent 87%, var(--shadow) 87.5%, var(--shadow)),
+                linear-gradient(60deg, rgba(201, 169, 89, 0.08) 25%, transparent 25.5%, transparent 75%, rgba(201, 169, 89, 0.08) 75%, rgba(201, 169, 89, 0.08)),
+                linear-gradient(60deg, rgba(201, 169, 89, 0.08) 25%, transparent 25.5%, transparent 75%, rgba(201, 169, 89, 0.08) 75%, rgba(201, 169, 89, 0.08));
+            background-size: 80px 140px;
+            background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
+            opacity: 0.2;
+            z-index: -1;
+        }
+
+        /* Light mode styles */
+        body.light-mode {
+            background-color: var(--beige);
+            color: var(--text-dark);
+        }
+
+       
+
+        .light-mode .card-header {
+            background: linear-gradient(135deg, var(--dark-green), var(--medium-green));
+        }
+
+        .light-mode .surah-btn {
+            background-color: white;
+            color: var(--text-dark);
+            border-color: var(--sand);
+        }
+
+        .light-mode .surah-btn:hover {
+            background-color: var(--beige);
+        }
+
+        .light-mode .surah-btn.active {
+            background-color: var(--medium-green);
+            color: white;
+        }
+
+        .light-mode .reciter-select {
+            background-color: white;
+            color: var(--text-dark);
+            border-color: var(--sand);
+        }
+
+        .light-mode .audio-player-card {
+            background: white;
+            border-color: var(--sand);
+        }
+
+        .light-mode .player-reciter,
+        .light-mode .player-surah {
+            color: var(--text-light);
+        }
+
+       
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
