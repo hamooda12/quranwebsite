@@ -2,7 +2,7 @@ import './leftpanel.css'
 import '../Common/commonstyle.css'
 import { SelectReader } from './SelectedReader'
 import { useState } from 'react'
-export function LeftPanel({selectedSurah,showPlayer,setReacterForMain,togglePlay,isPlaying,onPlayReader,isMuted,Muted}) {
+export function LeftPanel({selectedSurah,showPlayer,setReacterForMain,togglePlay,isPlaying,onPlayReader,isMuted,Muted,iSRepeating,Repeted}) {
     const [reacterSelect, setReacterSelect] = useState("لم يتم الاختيار");
     return   <div className="left-panel">
                 <div className="reciter-selection">
@@ -37,8 +37,8 @@ export function LeftPanel({selectedSurah,showPlayer,setReacterForMain,togglePlay
                     </div>
                     
                     <div className="player-controls">
-                         <button className="control-btn repet" id="repeatBtn" title="تكرار السورة">
-        🔁
+                         <button className="control-btn repet" id="repeatBtn" title="تكرار السورة" onClick={Repeted}>
+        {iSRepeating ? " 🔁" : "➡️"}
     </button>
                         <button className="control-btn secondary" id="muteBtn" onClick={Muted} title={isMuted ? "إلغاء كتم الصوت" : "كتم الصوت"}>
                        {isMuted ? "🔇" : "🔊"}

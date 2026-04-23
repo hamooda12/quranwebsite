@@ -1,13 +1,14 @@
 import './pageStyle.css'
 
-export function GetPage1({ setSelectedSurah, onPlay, isSelectReacter }) {
+export function GetPage1({ setSelectedSurah, onPlay, isSelectReacter,numberOfPage }) {
 
 
 
 
 
-    return <div className="surah-page" id="page1">
-        <div className="surah-grid" id="surahGrid">
+    return numberOfPage !== 1 ? null : (
+        <div className="surah-page" id="page1">
+            <div className="surah-grid" id="surahGrid">
 
             <button className="surah-btn" data-surah="البقرة" onClick={() => {
                 if (isSelectReacter()) {
@@ -258,5 +259,5 @@ onPlay("الإسراء")
 
             }}>النور</button>
         </div>
-    </div>
+    </div>)
 }
