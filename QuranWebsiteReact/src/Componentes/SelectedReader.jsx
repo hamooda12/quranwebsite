@@ -1,10 +1,14 @@
 import './SelctedReaderStyle.css'
 import '../Common/commonstyle.css'
-export function SelectReader(){
+export function SelectReader( {setReacterSelect,setReacter,onPlayReader,selctedSurah}) {
     return <>
-        <select className="reciter-select" id="reciterSelect">
-                            <option value="">-- اختر قارئًا --</option>
-                            <option value="Mishary Alafasi">مشاري العفاسي</option>
+        <select className="reciter-select" id="reciterSelect" onChange={(e) => {setReacterSelect(e.target.value)
+
+         setReacter(e.target.value)
+            onPlayReader(selctedSurah)
+        }}>
+                            <option value="-- اختر قارئًا --">-- اختر قارئًا --</option>
+                            <option value="Mishary Alafasi" >مشاري العفاسي</option>
                             <option value="Saad Al-Ghamdi">سعد الغامدي</option>
                             <option value="Ahmad Al-Ajmy">أحمد العجمي</option>
                             <option value="Maher Al Meaqli">ماهر المعيقلي</option>

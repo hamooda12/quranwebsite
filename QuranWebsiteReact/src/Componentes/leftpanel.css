@@ -61,7 +61,7 @@
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
             border: 1px solid var(--dark-border);
             margin-top: 20px;
-            display: none;
+   
             animation: fadeIn 0.5s ease;
         }
         @keyframes fadeIn {
