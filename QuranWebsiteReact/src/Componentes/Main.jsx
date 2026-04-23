@@ -4,6 +4,7 @@ import { GetPage2 } from '../sours/page2'
 import { GetPage3 } from '../sours/page3'
 import { GetPage4 } from '../sours/page4'
 import { LeftPanel } from './LeftPanel'
+import { SearchSurah } from './SearchSurah'
 import '../Common/commonstyle.css'
 import './main.css'
 import { useState, useEffect, useRef } from 'react'
@@ -16,7 +17,7 @@ export function Main() {
   const [isMuted, setIsMuted] = useState(false);
   let [audioUrl, setAudioUrl] = useState([])
   const [iSRepeating, setIsRepeating] = useState(false);
-
+const [searchText, setSearchText] = useState("");
   const [showPlayer, setShowPlayer] = useState(false);
 
   const audioRef = useRef(new Audio());
@@ -236,13 +237,13 @@ export function Main() {
   }
 }, [reacterSelect, selectedSurah]);
   const pages = [<GetPage1 setSelectedSurah={setSelectedSurah} onPlay={handleSurahSelection}
-     isSelectReacter={SelctedReactier} numberOfPage={numberOfPage} />, 
+     isSelectReacter={SelctedReactier} numberOfPage={numberOfPage} searchText={searchText} />, 
   <GetPage2 setSelectedSurah={setSelectedSurah} onPlay={handleSurahSelection}
-     isSelectReacter={SelctedReactier} numberOfPage={numberOfPage} />,
+     isSelectReacter={SelctedReactier} numberOfPage={numberOfPage} searchText={searchText} />,
   <GetPage3 setSelectedSurah={setSelectedSurah} onPlay={handleSurahSelection}
-     isSelectReacter={SelctedReactier} numberOfPage={numberOfPage}/>,
+     isSelectReacter={SelctedReactier} numberOfPage={numberOfPage} searchText={searchText }/>,
   <GetPage4 setSelectedSurah={setSelectedSurah} onPlay={handleSurahSelection}
-     isSelectReacter={SelctedReactier} numberOfPage={numberOfPage} />];
+     isSelectReacter={SelctedReactier} numberOfPage={numberOfPage} searchText={searchText }/>];
 
 
   return <div className='main'>
@@ -251,6 +252,7 @@ export function Main() {
 
       <div className="surah-grid-container" id="hi" >
         <h2 className="section-title"><i>🌙</i> السور</h2>
+        <SearchSurah onSearch={setSearchText} />
         {pages[numberOfPage - 1]}
 
 
