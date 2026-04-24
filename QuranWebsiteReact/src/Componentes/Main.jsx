@@ -220,7 +220,7 @@ function handleSearch(text) {
 
   useEffect(() => {
 
-    axios.get('http://mp3quran.net/api/_english.php')
+    axios.get('https://mp3quran.net/api/_english.php')
       .then((response) => {
         setAudioUrl(response.data.reciters)
       })
